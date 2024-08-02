@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.cdnfonts.com/css/century-gothic-paneuropean" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Century Gothic";
+            background-color: black;
+            height: auto;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        p,
+        h1,
+        span {
+            margin: 0;
+        }
+
+        .section-white {
+            height: 240px;
+            background-color: white;
+        }
+
+        .section-white.upper {
+            border-bottom-left-radius: 160px;
+        }
+
+        .section-white.lower {
+            border-top-right-radius: 160px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            max-width: 1320px;
+            margin: auto;
+            padding: 80px 0px 80px 0px;
+        }
+
+        .question-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .question {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .question-top-content {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .question-circle {
+            border-radius: 100px;
+        }
+
+        .question-circle.big {
+            width: 82px;
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 36px;
+        }
+
+        .question-circle.small {
+            width: 12px;
+            height: 12px;
+        }
+
+        .question-year-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .question-year {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .question-content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .question-content-list>li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .list-number {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 20px;
+
+        }
+
+        .list-text {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 22px;
+            color: #FFFFFF;
+            opacity: 0.8;
+        }
+
+        .question-list>div:nth-child(1) .question-top-content>span {
+            background-color: #22A75D;
+            box-shadow: 0px 15px 25px 0px #22A75D40;
+        }
+
+        .question-list>div:nth-child(1) .question-circle.small {
+            background-color: #22A75D;
+        }
+
+        .question-list>div:nth-child(1) .list-number {
+            color: #22A75D;
+        }
+
+        .question-list>div:nth-child(2) .question-top-content>span {
+            background-color: #2278D4;
+            box-shadow: 0px 15px 25px 0px #2278D440;
+        }
+
+        .question-list>div:nth-child(2) .question-circle.small {
+            background-color: #2278D4;
+        }
+
+        .question-list>div:nth-child(2) .list-number {
+            color: #2278D4;
+        }
+
+        .question-list>div:nth-child(3) .question-top-content>span {
+            background-color: #FFD100;
+            box-shadow: 0px 15px 25px 0px #FFD10040;
+        }
+
+        .question-list>div:nth-child(3) .question-circle.small {
+            background-color: #FFD100;
+        }
+
+        .question-list>div:nth-child(3) .list-number {
+            color: #FFD100;
+        }
+
+        .question-list>div:nth-child(4) .question-top-content>span {
+            background-color: #E20613;
+            box-shadow: 0px 15px 25px 0px #E2061340;
+        }
+
+        .question-list>div:nth-child(4) .question-circle.small {
+            background-color: #E20613;
+        }
+
+        .question-list>div:nth-child(4) .list-number {
+            color: #E20613;
+        }
+
+        .about-company {
+            display: flex;
+            gap: 36px;
+        }
+
+        .about-company>div {
+            width: 50%;
+        }
+
+        .about-company-desc {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .about-company-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-company-head>h1 {
+            font-size: 38px;
+            font-weight: 600;
+            line-height: 54px;
+            color: white;
+        }
+
+        .about-company-desc>p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: white;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .about-company-desc>button {
+            width: 147px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #22A75D;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 18px;
+            color: white;
+            padding: 12px 0;
+            background-color: transparent;
+            border-radius: 100px;
+        }
+        .gradient{
+            height: 500px;
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .gradient>div {
+            background-color: #2278D4;
+            border-radius: 16px;
+            width: 70%;
+            height:100%;
+        }
+
+        .gradient img {
+            position: absolute;
+            right: -16px;
+            bottom: -62px;
+            width: 650px;
+            height: 658px;
+            object-fit: cover;
+            transform: rotateY(180deg);
+        }
+
+        @media screen and (min-width:320px){
+            .section-white{
+                width: 0;
+                height: 0;
+            }
+            .content{
+               padding: 80px 0px 0px 0px;
+            }
+            .content>div:nth-child(1){
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            .question-list {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 40px;
+            }
+            .about-company{
+                flex-direction: column;
+            }
+            
+            .about-company>div{
+                width: 100%;
+            }
+            .gradient>div{
+                width: 100%;
+            }
+            .about-company{
+                width: 100%;
+            }
+            .about-company button{
+                display: none;
+            }
+            .gradient img {
+                position: absolute;
+                right: 0px;
+            }
+            /* .about-company-desc{
+                padding-left: 20px;
+                padding-right: 20px;
+            } */
+            .about-company-desc p{
+                 padding-left: 24px;
+                padding-right: 24px;
+            }
+            .about-company-head{
+                margin-left: 24px;
+            }
+        }
+        @media screen and (min-width:1200px){
+            .section-white{
+                width: 100%;
+                height: 240px;
+            }
+            .content{
+                padding: 80px 0px 80px 0px;
+            }
+            .about-company-desc,
+            .content>div:nth-child(1){
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+            .question-list {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            .about-company{
+                flex-direction: row;
+            }
+            .about-company>div{
+                width: 50%;
+            }
+            .gradient>div{
+                width: 70%;
+            }
+             .about-company button{
+                display:flex;
+            }
+            .gradient img {
+                position: absolute;
+                right: -16px;
+            }
+            .about-company-desc p{
+                 padding-left: 0px;
+                padding-right: 0px;
+            }
+            .about-company-head{
+                margin-left: 0px;
+            }
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div>
+        <section class="section-white upper">
+
+        </section>
+        <section class="content">
+            <div id="q-list" class="question-list">
+                <div class="question">
+                    <div class="question-top-content">
+                        <span class="question-circle big">
+                            Q1
+                        </span>
+                        <div class="question-year-wrapper">
+                            <span class="question-circle small"></span>
+                            <span class="question-year">2021</span>
+                        </div>
+                    </div>
+                    <ul class="question-content-list">
+                        <li>
+                            <span class="list-number">01</span>
+                            <span class="list-text">Team set-up</span>
+                        </li>
+                        <li>
+                            <span class="list-number">02</span>
+                            <span class="list-text">Launch of informational website</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <div class="question-top-content">
+                        <span class="question-circle big">
+                            Q2
+                        </span>
+                        <div class="question-year-wrapper">
+                            <span class="question-circle small"></span>
+                            <span class="question-year">2021</span>
+                        </div>
+                    </div>
+                    <ul class="question-content-list">
+                        <li>
+                            <span class="list-number">01</span>
+                            <span class="list-text">Presale and exchange listings</span>
+                        </li>
+                        <li>
+                            <span class="list-number">02</span>
+                            <span class="list-text">Blockchain development and launch</span>
+                        </li>
+                        <li>
+                            <span class="list-number">03</span>
+                            <span class="list-text">Launch of our MVP</span>
+                        </li>
+                        <li>
+                            <span class="list-number">03</span>
+                            <span class="list-text">Influencer agency partnerships</span>
+                        </li>
+                        <li>
+                            <span class="list-number">04</span>
+                            <span class="list-text">Marketing and promotion</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <div class="question-top-content">
+                        <span class="question-circle big">
+                            Q3
+                        </span>
+                        <div class="question-year-wrapper">
+                            <span class="question-circle small"></span>
+                            <span class="question-year">2021</span>
+                        </div>
+                    </div>
+                    <ul class="question-content-list">
+                        <li>
+                            <span class="list-number">01</span>
+                            <span class="list-text">Celebrity, Creator and Influencer partnerships</span>
+                        </li>
+                        <li>
+                            <span class="list-number">02</span>
+                            <span class="list-text">Expansion of creator communities on our platform</span>
+                        </li>
+                        <li>
+                            <span class="list-number">03</span>
+                            <span class="list-text">More Marketing and promotion</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="question">
+                    <div class="question-top-content">
+                        <span class="question-circle big">
+                            Q4
+                        </span>
+                        <div class="question-year-wrapper">
+                            <span class="question-circle small"></span>
+                            <span class="question-year">2021</span>
+                        </div>
+                    </div>
+                    <ul class="question-content-list">
+                        <li>
+                            <span class="list-number">01</span>
+                            <span class="list-text">Mainstream partnerships</span>
+                        </li>
+                        <li>
+                            <span class="list-number">02</span>
+                            <span class="list-text">500 active creator communities</span>
+                        </li>
+                        <li>
+                            <span class="list-number">03</span>
+                            <span class="list-text">2Million active community members
+                            </span>
+                        </li>
+                        <li>
+                            <span class="list-number">04</span>
+                            <span class="list-text">More Marketing and promotion</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about-company">
+                <div class="about-company-desc">
+                    <div class="about-company-head">
+                        <img src="logo.svg" alt="logo" />
+                        <h1>About Company</h1>
+                    </div>
+                    <p>
+                        <span style="font-weight: 700;">Cryptocurrency adoption is at less than 1% of the global world
+                            population with some countries and entities actively
+                            fighting against its mass adoption and the smartest developers and nerds holding the
+                            fort.</span>
+                        <br />
+                        <br />
+                        Bitcoin was the first, and it has since grown to thousands of tokens launched all aiming to fix
+                        one problem or the other
+                        with some quite simply FOMOing the moment. Our goal is to bring mass adoption to the
+                        cryptocurrency space by dumbing it
+                        down. How far down? So down that even a celebrity can explain it in simple words to their
+                        followers and have them
+                        download an app, buy into the social currency of their favourite person and watch their
+                        investment as is with other crypto currency project.
+                        <br />
+                        <br />
+                        We are trying to do to this space what investment apps did for the "nonexistent retail
+                        investors". We are gamefying
+                        digital currency, bringing in popular faces instead of hard to understand projects to make it
+                        the norm and inadvertently
+                        being the "gateway drug" for a lot of people to finally give this space a real look.
+                        <br />
+                        <br />
+                        <span style="font-weight: 700;">A new digital economy is coming. People would be just as
+                            powerful as countries and creators would be paid beyond the
+                            peanuts that conventional social media platforms can offer.
+                        </span>
+
+                        <br />
+                        There would be new markets and advertisers with little to offer would not find home there. Like
+                        Kanye said,
+                    </p>
+                    <button>Read More</button>
+                </div>
+                <div class="gradient">
+                    <div>
+                        <img src="hand.png" alt="mobile-in-hand" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-white lower">
+
+        </section>
+    </div>
+</body>
+
+</html>
